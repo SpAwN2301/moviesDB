@@ -1,16 +1,21 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png" />
-  <HelloWorld msg="Welcome to Your Vue.js App" />
+  <button class="test">click</button>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
+
+import { mapActions } from 'vuex';
 
 export default {
   name: "App",
   components: {
-    HelloWorld,
   },
+  mounted() {
+    this.fetchMovies();
+  },
+  methods: {
+    ...mapActions('moviesStore', ['fetchMovies'])
+  }
 };
 </script>
 

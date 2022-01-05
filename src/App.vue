@@ -3,19 +3,17 @@
 </template>
 
 <script>
-
-import { mapActions } from 'vuex';
+import { mapActions } from "vuex";
 
 export default {
   name: "App",
-  components: {
-  },
+  components: {},
   mounted() {
     this.fetchMovies();
   },
   methods: {
-    ...mapActions('moviesStore', ['fetchMovies'])
-  }
+    ...mapActions("moviesStore", ["fetchMovies"]),
+  },
 };
 </script>
 

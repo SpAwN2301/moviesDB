@@ -1,15 +1,23 @@
 <template>
-  <button class="test">click</button>
+  <div class="container">
+    <MoviesList :list="moviesList" />
+  </div>
 </template>
 
 <script>
-import { mapActions } from "vuex";
+import { mapActions, mapGetters } from "vuex";
+import MoviesList from "@/components/MoviesList";
 
 export default {
   name: "App",
-  components: {},
+  components: {
+    MoviesList,
+  },
   mounted() {
     this.fetchMovies();
+  },
+  computed: {
+    ...mapGetters("moviesStore", ["moviesList"]),
   },
   methods: {
     ...mapActions("moviesStore", ["fetchMovies"]),
@@ -18,6 +26,18 @@ export default {
 </script>
 
 <style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-text-size-adjust: 100%;
+}
+.container {
+  max-width: 1240px;
+  margin: 0 auto;
+}
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

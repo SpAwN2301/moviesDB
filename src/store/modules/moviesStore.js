@@ -21,13 +21,14 @@ const moviesStore = {
         movies: {}
     },
     getters: {
+        moviesList: ({ movies }) => movies,
         slicedIDs: ({ top250IDs }) => (from, to) => top250IDs.slice(from, to),
         currentPage: ({ currentPage }) => currentPage,
         moviesPerPage: ({ moviesPerPage }) => moviesPerPage
     },
     mutations: {
         [MOVIES](state, value) {
-            state.movie = value
+            state.movies = value
         }
     },
     actions: {
@@ -39,10 +40,10 @@ const moviesStore = {
                 const moviesToFetch = slicedIDs(from, to);
 
                 const requests = moviesToFetch.map(id => axios.get(`/?i=${id}`));
-                const responses = await Promise.all(requests);
-                const response = responses.map(res => res.data);
+                const response = await Promise.all(requests);
+                const resData = response.map(res => res.data);
 
-                const movies = serializeResponse(response);
+                const movies = serializeResponse(resData);
                 commit(MOVIES, movies);
             } catch (error) {
                 console.log(error);

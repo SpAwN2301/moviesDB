@@ -2,7 +2,7 @@
   <div class="moviesList">
     <h3 class="moviesList__title" @click="showList">IMDB Top 250</h3>
     <ul class="moviesList__grid">
-      <MovieItem v-for="(movie, key) in list" :key="key" :movie="movie" />
+      <MovieItem v-for="(movie, key) in moviesList" :key="key" :movie="movie" @mouseover="onMouseOver(movie.Poster)" />
     </ul>
   </div>
 </template>
@@ -16,20 +16,19 @@ export default {
     MovieItem,
   },
   props: {
-    list: {
+    moviesList: {
       type: Object,
       default: () => ({}),
     },
   },
   computed: {
     isExist() {
-      console.log(this.list);
-      return Boolean(Object.keys(this.list).length);
+      return Boolean(Object.keys(this.moviesList).length);
     },
   },
   methods: {
-    showList(){
-      console.log(this.list);
+    onMouseOver(poster) {
+      this.$emit('changePoster', poster)
     }
   }
 };
@@ -38,8 +37,11 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .moviesList__title {
-  font-size: 50px;
   margin-bottom: 30px;
+
+  text-shadow: 0 0 20px #181818;
+  font-size: 50px;
+  color: #FFFFFF;
 }
 .moviesList__grid {
   list-style: none;

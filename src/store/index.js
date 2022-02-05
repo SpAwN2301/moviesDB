@@ -1,5 +1,6 @@
 import { createStore } from "vuex";
 import moviesStore from "./modules/moviesStore";
+import loaderStore from "./modules/loaderStore";
 
 export default createStore({
   state: {},
@@ -7,5 +8,6 @@ export default createStore({
   actions: {},
   modules: {
     moviesStore,
+    loaderStore,
   },
 });

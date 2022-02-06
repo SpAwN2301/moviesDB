@@ -2,12 +2,19 @@
   <div class="moviesList">
     <h3 class="moviesList__title" @click="showList">IMDB Top 250</h3>
     <ul class="moviesList__grid">
-      <MovieItem v-for="(movie, key) in moviesList" :key="key" :movie="movie" @mouseover="onMouseOver(movie.Poster)" />
+      <MovieItem
+        v-for="(movie, key) in moviesList"
+        :key="key"
+        :movie="movie"
+        @mouseover="onMouseOver(movie.Poster)"
+        @removeItem="onRemoveItem"
+      />
     </ul>
   </div>
 </template>
 
 <script>
+import { mapActions } from "vuex";
 import MovieItem from "./MovieItem";
 
 export default {
@@ -27,10 +34,18 @@ export default {
     },
   },
   methods: {
+    ...mapActions('moviesStore', ['removeMovie']),
     onMouseOver(poster) {
-      this.$emit('changePoster', poster)
+      this.$emit("changePoster", poster);
+    },
+    onRemoveItem({ id, title }) {
+      let deleteMovie = confirm(`Вы действительно хотите удалить фильм '${title}' из списка?`);
+
+      if (deleteMovie) {
+        this.removeMovie(id)
+      }
     }
-  }
+  },
 };
 </script>
 
@@ -41,7 +56,7 @@ export default {
 
   text-shadow: 0 0 20px #181818;
   font-size: 50px;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 .moviesList__grid {
   list-style: none;

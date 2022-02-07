@@ -1,14 +1,15 @@
 <template>
-  <div>
-    <router-view></router-view>
-  </div>
+  <Header />
+  <router-view></router-view>
 </template>
 
 <script>
+import Header from "./components/Header.vue";
 
 export default {
   name: "App",
   components: {
+    Header,
   },
   data: () => ({
 
@@ -22,6 +23,7 @@ export default {
   padding: 0;
   box-sizing: border-box;
   -webkit-tap-highlight-color: transparent;
+  outline: none;
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-text-size-adjust: 100%;
 }
@@ -31,7 +33,6 @@ export default {
 }
 #app {
   position: relative;
-  padding: 60px 0;
 
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

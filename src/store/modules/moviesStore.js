@@ -70,6 +70,26 @@ const moviesStore = {
                 commit(REMOVE_MOVIE, index);
                 dispatch("fetchMovies")
             }
+        },
+        async searchMovie({ commit, dispatch }, title) {
+            try {
+                dispatch("toggleLoader", true, { root: true });
+
+                const response = await axios.get(`/?s=${title}`);
+
+                if (response.data.Error) {
+                    throw Error(response.data.Error)
+                }
+
+                const movies = serializeResponse(response.data.Search);
+                console.log(movies);             
+                commit(MOVIES, movies);
+
+            } catch (error) {
+                console.log(error);
+            } finally {
+                dispatch("toggleLoader", false, { root: true })
+            }
         }
     }
 };

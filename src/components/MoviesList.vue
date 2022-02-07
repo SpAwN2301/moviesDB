@@ -60,9 +60,9 @@ export default {
 }
 .moviesList__grid {
   list-style: none;
-  margin: 2em;
+  margin: 2em 0;
   display: grid;
   grid-gap: 20px;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
 }
 </style>

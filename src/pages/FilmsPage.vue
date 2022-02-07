@@ -1,15 +1,17 @@
 <template>
-  <Preloader />
-  <PosterBg :poster="posterBg" />
-  <div class="container">
-    <MoviesList :moviesList="moviesList" @changePoster="changePoster" />
-    <MoviesPagination 
-      :current-page="currentPage" 
-      :per-page="moviesPerPage" 
-      :total="moviesLength" 
-      
-      @pageChanged="onPageChanged"
-    />
+  <div class="filmsPage">
+    <Preloader />
+    <PosterBg :poster="posterBg" />
+    <div class="container">
+      <MoviesList :moviesList="moviesList" @changePoster="changePoster" />
+      <MoviesPagination 
+        :current-page="currentPage" 
+        :per-page="moviesPerPage" 
+        :total="moviesLength" 
+        
+        @pageChanged="onPageChanged"
+      />
+    </div>
   </div>
 </template>
 
@@ -21,7 +23,7 @@ import MoviesPagination from "@/components/MoviesPagination";
 import Preloader from "@/components/Preloader";
 
 export default {
-  name: "App",
+  name: "FilmsPage",
   components: {
     MoviesList,
     PosterBg,
@@ -50,28 +52,8 @@ export default {
 };
 </script>
 
-<style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  -webkit-tap-highlight-color: transparent;
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-text-size-adjust: 100%;
-}
-.container {
-  max-width: 1240px;
-  margin: 0 auto;
-}
-#app {
-  position: relative;
-  padding: 60px 0;
-  min-height: 900px;
-
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<style scoped>
+  .filmsPage {
+    padding: 2rem 0;
+  }
 </style>

@@ -33,6 +33,8 @@ export default {
 }
 #app {
   position: relative;
+  width: 100vw;
+  min-height: 100vh;
 
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -41,4 +43,10 @@ export default {
   color: #2c3e50;
 }
 body::-webkit-scrollbar { display: none; }
+
+@media screen and (max-width: 1260px) {
+  .container {
+    padding: 0 20px;
+  }
+}
 </style>

@@ -14,9 +14,26 @@
             </div>
         </div>
 
-        <Modal :is-modal-open="isModalOpen" @closeModal="closeModal">            
+        <Modal :is-modal-open="isModalOpen" @closeModal="closeModal">
             <template #movie-info>
-              {{ movie }}
+                <div class="movieM__flexWrapper">
+                    <div class="movieM__poster">
+                        <img :src="movie.Poster" alt="" />
+                    </div>
+                    <div class="movieM__about">
+                        <h2>{{ movie.Title }} ({{ movie.Year }})</h2>
+                        <p class="movieModal__rated">
+                            Rated: {{ movie.Rated }}
+                        </p>
+                        <p class="movieM__descrip">{{ movie.Plot }}</p>
+
+						<div class="movieM__moreInfo">
+							<p>Writer: </p>		<p>{{ movie.Writer }}</p>
+							<p>Actors: </p>		<p>{{ movie.Actors }}</p>
+							<p>Runtime: </p>	<p>{{ movie.Runtime }}</p>
+						</div>
+                    </div>
+                </div>
             </template>
         </Modal>
     </li>
@@ -67,7 +84,6 @@ export default {
 };
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .movieItem {
     transition: transform 0.25s;
@@ -94,7 +110,7 @@ export default {
 } */
 .movieItem:hover::after,
 .movieItem:hover .movieItem__content {
-  opacity: 1;
+    opacity: 1;
 }
 
 .movieItem__bg {
@@ -172,5 +188,89 @@ export default {
 .movieItem__btn:hover {
     background: #ffffff;
     color: #181818;
+}
+
+.movieM__flexWrapper {
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+	column-gap: 30px;
+}
+
+.movieM__poster {
+	flex-shrink: 0;
+	max-width: 300px;
+	height: auto;
+}
+.movieM__poster > img {
+	width: 100%;
+	height: auto;
+}
+
+.movieM__descrip {
+	margin-top: 20px;
+	text-align: left;
+}
+
+.movieM__moreInfo {
+	margin-top: 20px;
+	display: grid;
+    grid-template-rows: auto;
+    grid-template-columns: 130px auto;
+	justify-items: start;
+	align-items: center;
+}
+.movieM__moreInfo > p {
+	padding: 5px 0;
+	text-align: left;
+}
+.movieM__moreInfo > p:nth-of-type(even) {
+	font-weight: bold;
+}
+
+@media screen and (max-width: 767px) {
+	.movieItem {
+		flex-shrink: 0;
+
+		width: 60vw;
+		height: auto;
+
+		scroll-snap-align: center;
+	}
+
+	.movieM__flexWrapper {
+		height: 100%;
+		overflow-y: auto;
+	}
+
+	.movieM__poster {
+		position: absolute;
+		z-index: -1;
+		inset: 0;
+
+		width: 100vw;
+		max-width: unset;
+
+		filter: brightness(0.5);
+	}
+	.movieItem__content {
+		opacity: 1;
+		background: rgba(0, 0, 0, 0.5);
+	}
+	.movieItem__name {
+		margin-bottom: 5px;
+		font-size: 4vw;
+	}
+	.movieItem__year {
+		font-size: 3vw;
+	}
+	.movieItem__btn {
+		font-size: 4vw;
+	}
+
+	.movieM__about {
+		padding-bottom: 30px;
+	}
+
 }
 </style>

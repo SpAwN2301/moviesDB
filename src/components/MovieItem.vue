@@ -218,7 +218,7 @@ export default {
     grid-template-rows: auto;
     grid-template-columns: 130px auto;
 	justify-items: start;
-	align-items: center;
+	align-items: start;
 }
 .movieM__moreInfo > p {
 	padding: 5px 0;
@@ -253,10 +253,15 @@ export default {
 
 		filter: brightness(0.5);
 	}
+    .movieM__poster > img {
+        width: auto;
+        height: 100%;
+    }
 	.movieItem__content {
 		opacity: 1;
 		background: rgba(0, 0, 0, 0.5);
 	}
+
 	.movieItem__name {
 		margin-bottom: 5px;
 		font-size: 4vw;

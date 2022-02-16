@@ -1,6 +1,6 @@
 <template>
     <div class="logoLink">
-        <a href="#">MoviesDB</a>
+        <a href="/main">MoviesDB</a>
     </div>
 </template>
 

@@ -67,9 +67,11 @@ export default {
 
     display: flex;
     flex-direction: column;
+
     max-width: 1240px;
     width: 100vw;
-    height: 60vh;
+    height: 90vh;
+    max-height: 900px;
 
     overflow-y: auto;
     background: #fff;
@@ -96,7 +98,7 @@ export default {
 
 @media screen and (max-width: 767px) {
     .modal {
-        overflow-y: hidden;
+        overflow: hidden;
         padding: 50px 20px 0;
         color: #ffffff;
         text-shadow: 0px 0px 3px #000000;

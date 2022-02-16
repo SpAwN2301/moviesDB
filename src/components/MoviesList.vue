@@ -70,7 +70,7 @@ export default {
 
 @media screen and (max-width: 767px) {
     .moviesList__title {
-        font-size: 13vw;
+        font-size: 13.3vw;
     }
 
     .moviesList__grid {

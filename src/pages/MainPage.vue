@@ -1,6 +1,6 @@
 <template>
-    <div>
-        main*99
+    <div class="mainPage">
+        <a href="/moviesDB" class="filmsPageLink">Go to FilmsPage</a>
     </div>
 </template>
 

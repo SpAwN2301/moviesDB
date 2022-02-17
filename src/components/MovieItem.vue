@@ -70,12 +70,10 @@ export default {
       });
     },
     openModal() {
-      console.log("open");
       this.isModalOpen = true;
       document.body.style.overflow = "hidden";
     },
     closeModal() {
-      console.log("close");
       this.isModalOpen = false;
       document.body.style.overflow = "visible";
     },

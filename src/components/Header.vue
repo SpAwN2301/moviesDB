@@ -2,6 +2,7 @@
   <header class="header">
     <div class="container">
       <LogoLink />
+      <Fullscreen />
       <SearchBox />
     </div>
   </header>
@@ -10,12 +11,14 @@
 <script>
 import LogoLink from "./LogoLink.vue";
 import SearchBox from "./SearchBox.vue";
+import Fullscreen from "./Fullscreen.vue";
 
 export default {
   name: "Header",
   components: {
     LogoLink,
     SearchBox,
+    Fullscreen,
   },
 };
 </script>

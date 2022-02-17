@@ -899,6 +899,7 @@ export default {};
   min-height: 725px;
   height: 100vh;
   max-height: 900px;
+  background: #ffffff;
 }
 .about > .container {
   display: flex;

@@ -1,27 +1,22 @@
 <template>
-    <div class="logoLink">
-        <a href="/main">MoviesDB</a>
-    </div>
+  <router-link :to="{ name: 'main' }" class="logoLink"> MoviesDB </router-link>
 </template>
 
 <script>
 export default {
-    name: 'LogoLink',
-}
+  name: "LogoLink",
+};
 </script>
 
 <style scoped>
-    .logoLink {
-        cursor: pointer;
-        padding: 5px 5px 5px 0;
-        width: min-content;
-    }
-    .logoLink > a {
-        text-decoration: none;
-        font-size: 24px;
-        color: #ffffff;
-    }
-    .logoLink > a:visited {        
-        color: #ffffff;
-    }
+.logoLink {
+  cursor: pointer;
+  padding: 20px 20px 20px 0;
+  text-decoration: none;
+  font-size: 24px;
+  color: #ffffff;
+}
+.logoLink:visited {
+  color: #ffffff;
+}
 </style>

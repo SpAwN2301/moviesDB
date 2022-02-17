@@ -5,14 +5,14 @@ import FilmsPage from "../pages/FilmsPage";
 
 const routes = [
   {
-    path: "/main",
-    name: "Main",
+    path: "/",
+    name: "main",
     component: MainPage,
   },
   {
-    path: "/",
+    path: "/filmsPage",
     name: "films",
-    component: FilmsPage
+    component: FilmsPage,
   },
 ];
 

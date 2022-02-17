@@ -4,11 +4,10 @@
     <PosterBg :poster="posterBg" />
     <div class="container">
       <MoviesList :moviesList="moviesList" @changePoster="changePoster" />
-      <MoviesPagination 
-        :current-page="currentPage" 
-        :per-page="moviesPerPage" 
-        :total="moviesLength" 
-        
+      <MoviesPagination
+        :current-page="currentPage"
+        :per-page="moviesPerPage"
+        :total="moviesLength"
         @pageChanged="onPageChanged"
       />
     </div>
@@ -31,29 +30,33 @@ export default {
     Preloader,
   },
   data: () => ({
-    posterBg: ''
+    posterBg: "",
   }),
   mounted() {
     this.fetchMovies();
   },
   computed: {
-    ...mapGetters("moviesStore", ["moviesList", "currentPage", "moviesPerPage", "moviesLength"]),
+    ...mapGetters("moviesStore", [
+      "moviesList",
+      "currentPage",
+      "moviesPerPage",
+      "moviesLength",
+    ]),
   },
   methods: {
     ...mapActions("moviesStore", ["fetchMovies", "changeCurrentPage"]),
     changePoster(poster) {
-      this.posterBg = poster
+      this.posterBg = poster;
     },
     onPageChanged(value) {
-      console.log(this.$route);
-      this.changeCurrentPage(value)
-    }
+      this.changeCurrentPage(value);
+    },
   },
 };
 </script>
 
 <style scoped>
-  .filmsPage {
-    padding: 2rem 0;
-  }
+.filmsPage {
+  padding: 2rem 0;
+}
 </style>

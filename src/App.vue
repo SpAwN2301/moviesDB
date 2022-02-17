@@ -12,7 +12,7 @@ export default {
     Header,
   },
   data: () => ({
-    isModalOpen: false
+    isModalOpen: false,
   }),
 };
 </script>
@@ -42,7 +42,9 @@ export default {
   text-align: center;
   color: #2c3e50;
 }
-body::-webkit-scrollbar { display: none; }
+body::-webkit-scrollbar {
+  display: none;
+}
 
 @media screen and (max-width: 1260px) {
   .container {

@@ -48,6 +48,10 @@ export default {
   bottom: 0;
 
   opacity: 0.7;
-  background-image: linear-gradient( 45deg, rgb(18, 18, 18) 0%, rgb(0, 0, 0) 100% );
+  background-image: linear-gradient(
+    45deg,
+    rgb(18, 18, 18) 0%,
+    rgb(0, 0, 0) 100%
+  );
 }
 </style>
